@@ -20,7 +20,7 @@ if any error occured while building wheels of required packages, please try the 
 > sudo pip install torweave
 ```
 
-<h1>plain english</h1>
+<h1>Plain English</h1>
 
 <h2>Why Tor?</h2>
 <br>
@@ -47,3 +47,7 @@ Information that might be leaked:
 <h2>Why not just using VPN?</h2>
 
 In principle, ***VPNs emphasize privacy, and Tor emphasizes anonymity***. While there’s some overlap between these two concepts, think of it this way: anonymity hides who you are, and privacy hides what you do.
+
+So, A VPN encrypts your connection and routes it through an intermediary server in another location of the user’s choosing. This server is operated by the VPN provider which is a centralised third service which holds users information: e-mails, phone numbers, payments data, and more. Over this decade, many VPN services have been over-taken by governements.
+
+In contracts, Tor encrypts your internet connection and routes it through a random sequence of servers run by volunteers (decentralised).
