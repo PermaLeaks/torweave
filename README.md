@@ -75,12 +75,14 @@ Current torweave release isn't more than Arweave initialization over Tor, so it 
 After finishing PermaLeaks platform development, torweave development will be continued. it will start *from* providing a SDK to interact with PermaLeaks locally, *to* build a privacy protocol for Arweave network.
 <h2>examples</h2>
 first you need to import the package:
+
 ```
 from torweave.api import Torweave
 ```
 
 **zero index start**
 be anonymous from the start, create, and make your first transaction over Tor
+
 ```
 wallet_jwk = Torweave().generate_wallet()
 print(wallet_jwk)
