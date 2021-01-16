@@ -72,5 +72,29 @@ torweave is a wrapper of Arweave HTTP api which simply make HTTP requests via a 
 <h2>usage</h2>
 Current torweave release isn't more than Arweave initialization over Tor, so it doesn't provide more than few functions: more extended than other python packages.
 <h2>traction</h2>
-After finishing PermaLeaks platform development, torweave development will be continued. it will start **from** providing a SDK to interact with PermaLeaks locally, **to** build a privacy protocol for Arweave network.
+After finishing PermaLeaks platform development, torweave development will be continued. it will start *from* providing a SDK to interact with PermaLeaks locally, *to* build a privacy protocol for Arweave network.
+<h2>examples</h2>
+first you need to import the package:
+```
+from torweave.api import Torweave
+```
+
+**zero index start**
+be anonymous from the start, create, and make your first transaction over Tor
+```
+wallet_jwk = Torweave().generate_wallet()
+print(wallet_jwk)
+```
+
+**upload a .txt file**
+```
+tags = {
+        "nickname": "required",
+        "category": choose("hack", "leaks", "breach", "imported")
+        "type": "free",
+        "tags": "optional, words, acts, as, hashtags"
+        }
+        
+Torweave().upload_txt(tags=tags, "path/to/wallet.json", "path/filename.txt")
+```
 
