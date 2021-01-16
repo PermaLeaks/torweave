@@ -3,7 +3,7 @@
 <h1>requirements</h1>
 To run torweave as intended, it's required to install TOR (software not the browser) on your system and run a TOR circuit
 
-On linux:
+If you're using Debian, just run as root:
 ```
 > apt-get install tor
 > tor
