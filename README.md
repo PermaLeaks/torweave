@@ -49,9 +49,9 @@ Information that might be leaked:
 
 In principle, ***VPNs emphasize privacy, and Tor emphasizes anonymity***. While there’s some overlap between these two concepts, think of it this way: anonymity hides who you are, and privacy hides what you do.
 
-So, A VPN encrypts your connection and routes it through an intermediary server in another location of the user’s choosing. This server is operated by the VPN provider which is a centralised third service which holds users information: e-mails, phone numbers, payments data, and more. Over this decade, many VPN services have been over-taken by governements.
+So, A VPN encrypts your connection and routes it through an intermediary server in another location of the user’s choosing. This server is operated by the VPN provider which is a centralised private third service which holds users information: e-mails, phone numbers, payments data, and more. Over this decade, many VPN services have been over-taken by governements or got servers hacked.
 
-In contracts, Tor encrypts your internet connection and routes it through a random sequence of servers run by volunteers (decentralised).
+In contracts, Tor encrypts your internet connection and routes it through a random sequence of servers run by volunteers (decentralised). The network sends your data through no less than three relays at random. Your data is encrypted once for each relay, including the IP address of the next relay in the sequence. A layer of encryption is removed at each relay, revealing the next relay in the sequence while hiding it from previous relays in the chain. No one relay can see the contents, source, and destination of internet traffic, making it extremely difficult to trace. 
 
 Using Tor you achieve:
 
