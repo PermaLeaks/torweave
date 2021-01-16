@@ -51,3 +51,8 @@ In principle, ***VPNs emphasize privacy, and Tor emphasizes anonymity***. While 
 So, A VPN encrypts your connection and routes it through an intermediary server in another location of the user’s choosing. This server is operated by the VPN provider which is a centralised third service which holds users information: e-mails, phone numbers, payments data, and more. Over this decade, many VPN services have been over-taken by governements.
 
 In contracts, Tor encrypts your internet connection and routes it through a random sequence of servers run by volunteers (decentralised).
+
+Using Tor you achieve:
+
+* Anonymous HTTP requests
+* Untraceable communication – Journalists and their sources, whistleblowers, activists, dissidents, and victims of crime who wish to remain anonymous can use Tor to securely communicate without being tracked or leaving behind a trail of evidence | PermaLeaks will launch later an enhanced version of weavemail protocol to add more anonymoty for on-chain communication.
