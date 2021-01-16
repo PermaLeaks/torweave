@@ -2,95 +2,139 @@ import requests
 import json
 from jwcrypto import jwk
 import base64
-from Crypto.Hash import SHA256, SHA3_256
-def get_tor_session():
-    session = requests.session()
-    # Tor uses the 9050 port as the default socks port
-    session.proxies = {'http':  'socks5://127.0.0.1:9050',
-                       'https': 'socks5://127.0.0.1:9050'}
-    return session
-
-# Make a request through the Tor connection
-# IP visible through Tor
-session = get_tor_session()
-print(session.get("http://httpbin.org/ip").text)
-
-# Above should print an IP different than your public IP
-
-# Following prints your normal public IP
-print(requests.get("http://httpbin.org/ip").text)
-
-def get_network():
-    """
-
-    :return:
-    """
-    network = session.get("https://arweave.net/info").json()
-    return network
+from Crypto.Hash import SHA256
+import arweave
+from bs4 import BeautifulSoup
 
 
-def get_peers():
-    """
+class Torweave(object):
 
-    :return:
-    """
-    peers = session.get("https://arweave.net/peers").json()
-    return peers
+    def get_tor(self):
 
+        global session
 
-def current_block():
-    """
+        session = requests.session()
+        # Tor uses the 9050 port as the default socks port
+        session.proxies = {'http': 'socks5://127.0.0.1:9050',
 
-    :return:
-    """
-    cur_block = session.get("https://arweave.net/current_block").json()
-    return cur_block
+                           'https': 'socks5://127.0.0.1:9050'}
 
+        return session
 
-def generate_wallet():
-    """
+    def check_connection(self):
+        html = session.get("https://check.torproject.org").text
+        soup = BeautifulSoup(html, "html.parser")
+        soup_title = soup.find("title")
 
-    :return: json keyfile
-    """
-    key = jwk.JWK.generate(kty="RSA", size=4096)
-    jwk_obj = jwk.JWK.export(key)
+        result = \
+            str(soup_title).replace("<title>", "")\
+            .replace("</title>", "") \
+            .strip()
 
-    dict = json.loads(jwk_obj)
+        if result != "Congratulations. This browser is configured to use Tor.":
 
-    keyfile = {
+            raise Exception("Tor is not running. not connected")
+        else:
+            return "connected"
 
-        "kty": dict["kty"],
-        "e": dict["e"],
-        "n": dict["n"],
-        "d": dict["d"],
-        "p": dict["p"],
-        "q": dict["q"],
-        "dp": dict["dp"],
-        "dq": dict["dq"],
-        "qi": dict["qi"]
+    def current_ip(self):
+        """
 
-    }
+        :return: Tor exit router IP adrs
+        """
+        return session.get("http://httpbin.org/ip").json()["origin"]
 
-    return keyfile
+    
+    def get_real_ip(self):
+        """
 
+        :return:
+        """
+        return requests.get("https://httpbin.org/ip").json()["origin"]
 
+    def get_network(self):
+        """
 
-def jwktopub(n):
-    """
+        :return:
+        """
+        network = session.get("https://arweave.net/info").json()
+        return network
 
-    :param n:
-    :return:
-    """
-    h = SHA3_256.new()
-    print(str.encode(n))
-    h.update(str.encode(n))
-    print(h.digest())
+    def get_peers(self):
+        """
 
+        :return:
+        """
+        peers = session.get("https://arweave.net/peers").json()
+        return peers
 
+    def current_block(self):
+        """
 
-    y = base64.urlsafe_b64encode(h.digest())
-    print(y)
-    print(str(y.decode('utf-8')))
+        :return:
+        """
+        cur_block = session.get("https://arweave.net/current_block").json()
+        return cur_block
+    
+    def get_wallets_transactions(self, address):
+        """
+        
+        :return: json list of encoded base64url transactions 
+        """
+        list = session.get(f"https://arweave.net/wallet/{address}/txs")
+        return list
+    
+    def generate_wallet(self):
+        """
+
+        :return: json keyfile
+        """
+        key = jwk.JWK.generate(kty="RSA", size=4096)
+        jwk_obj = jwk.JWK.export(key)
+
+        dict = json.loads(jwk_obj)
+
+        keyfile = {
+
+            "kty": dict["kty"],
+            "e": dict["e"],
+            "n": dict["n"],
+            "d": dict["d"],
+            "p": dict["p"],
+            "q": dict["q"],
+            "dp": dict["dp"],
+            "dq": dict["dq"],
+            "qi": dict["qi"]
+
+        }
+
+        return keyfile
+
+    def upload_txt(self, tags, filename):
+        """
+
+        :param path:
+        :param jwk:
+        :return:
+        """
+        wallet = arweave.Wallet('/path_to_/jwk.json')
+
+        # reading .txt content
+
+        with open(filename) as txt:
+            content = txt.read()
+            txt.close()
+
+            tx_obj = arweave.Transaction(wallet, data=content)
+
+            tx_obj.add_tag('Content Type', 'text/plain')
+            for tag, value in tags.items():
+                tx_obj.add_tag(tag, value)
+
+            tx_obj.sign()
+            tx_obj.send()
+
+            return tx_obj.id
 
 
 
