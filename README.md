@@ -56,3 +56,6 @@ Using Tor you achieve:
 
 * Anonymous HTTP requests
 * Untraceable communication – Journalists and their sources, whistleblowers, activists, dissidents, and victims of crime who wish to remain anonymous can use Tor to securely communicate without being tracked or leaving behind a trail of evidence | PermaLeaks will launch later an enhanced version of weavemail protocol to add more anonymoty for on-chain communication.
+
+**VPN point of failure:**
+A VPN can hide your IP address, but the VPN provider can still see connection data and traffic passing through its servers. Although most VPN providers say they don’t keep logs of this information, using them for anonymity still requires trusting the VPN provider, whereas Tor uses a trustless system.
