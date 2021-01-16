@@ -35,6 +35,7 @@ torweave is a python package built over Arweave HTTP api to make anonymous reque
 it's not required to use `torweave` in intention to post/publish leaks on <a href="https://permaleaks.org">permaleaks.org</a>, but if you are a user who cares about his ultimate privacy and refuse to share his IP with Arweave's peer, you can use `torweave`. For non-technical users, permaleaks UI provide an easy way to publish files on the platform.
 <br>
 <b>DNS Leakage</b>
+<br>
 torweave protects users from DNS leakage. Sending HTTP requests may ***(not always)*** leak your DNS to the public.
 Information that might be leaked:
 - Your IP: xxx.xxx.xx
@@ -57,5 +58,5 @@ Using Tor you achieve:
 * Anonymous HTTP requests
 * Untraceable communication – Journalists and their sources, whistleblowers, activists, dissidents, and victims of crime who wish to remain anonymous can use Tor to securely communicate without being tracked or leaving behind a trail of evidence | PermaLeaks will launch later an enhanced version of weavemail protocol to add more anonymoty for on-chain communication.
 
-**VPN point of failure:**
+**VPN point of failure:** <br>
 A VPN can hide your IP address, but the VPN provider can still see connection data and traffic passing through its servers. Although most VPN providers say they don’t keep logs of this information, using them for anonymity still requires trusting the VPN provider, whereas Tor uses a trustless system.
