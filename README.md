@@ -111,3 +111,8 @@ tags = {
 Torweave().upload_txt(tags=tags, "path/to/wallet.json", "path/filename.txt")
 ```
 
+<h1>License</h1>
+MIT
+
+<h1>Follow us</h1>
+* <a href="https://twitter.com/permaleaks">Twitter</a>
