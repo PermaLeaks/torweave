@@ -67,7 +67,10 @@ A VPN can hide your IP address, but the VPN provider can still see connection da
 
 <h1>How torweave works?</h1>
 
-torweave is a wrapper of Arweave HTTP api which simply make an HTTP request via a proxy that happens to be Tor's local SOCKS proxy. The package is used to be written in python due the language performance in networking and large Tor's support.
+torweave is a wrapper of Arweave HTTP api which simply make HTTP requests via a proxy that happens to be Tor's local SOCKS proxy. The package is used to be written in python due the language performance in networking and large Tor's support.
 
 <h2>usage</h2>
-Current torweave release isn't more than Arweave initialization over Tor, so it doesn't provide more than few functions at the current version. 
+Current torweave release isn't more than Arweave initialization over Tor, so it doesn't provide more than few functions: more extended than other python packages.
+<h2>traction</h2>
+After finishing PermaLeaks platform development, torweave development will be continued. it will start **from** providing a SDK to interact with PermaLeaks locally, **to** build a privacy protocol for Arweave network.
+
