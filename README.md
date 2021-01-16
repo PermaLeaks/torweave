@@ -65,6 +65,6 @@ Using Tor you achieve:
 **VPN point of failure:** <br>
 A VPN can hide your IP address, but the VPN provider can still see connection data and traffic passing through its servers. Although most VPN providers say they don’t keep logs of this information, using them for anonymity still requires trusting the VPN provider, whereas Tor uses a trustless system.
 
-<h2>How torweave works?</h2>
+<h1>How torweave works?</h1>
 
-torweave is a wrapper of Arweave HTTP api which simply make an HTTP request via a proxy that happens to be Tor's local SOCKS proxy. 
+torweave is a wrapper of Arweave HTTP api which simply make an HTTP request via a proxy that happens to be Tor's local SOCKS proxy. The package is used to be written in python due the language performance in networking and large Tor's support 
