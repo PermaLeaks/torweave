@@ -78,6 +78,17 @@ first you need to import the package:
 
 ```
 from torweave.api import Torweave
+
+# creat a Tor circuit
+Torweave().get_tor()
+
+#get your real ip
+my_ip = Torweave().get_real_ip()
+print(my_ip)
+
+#get your masking ip
+exit_router_ip = Torweave().current_ip()
+print(exit_router_ip)
 ```
 
 **zero index start**
