@@ -33,7 +33,7 @@ And as The Arweave protocol is based on HTTP, it was possible to mask your reque
 torweave is a python package built over Arweave HTTP api to make anonymous requests assuring `sender` privacy. we used `arweave-python-client` package to accelerate the developments. And since that package miss several essential functionalities like generating wallets, `/last_tx` issues and more, we have fixed it in torweave.
 
 it's not required to use `torweave` in intention to post/publish leaks on <a href="https://permaleaks.org">permaleaks.org</a>, but if you are a user who cares about his ultimate privacy and refuse to share his IP with Arweave's peer, you can use `torweave`. For non-technical users, permaleaks UI provide an easy way to publish files on the platform.
-
+<br>
 <b>DNS Leakage</b>
 torweave protects users from DNS leakage. Sending HTTP requests may ***(not always)*** leak your DNS to the public.
 Information that might be leaked:
@@ -41,6 +41,9 @@ Information that might be leaked:
 - DNS IP: xxx.xxx.xx.xx
 - Hostname: xxx.xxx.xx.xx
 - ISP: ISP registred name
-- Country: 
-- City: 
+- Country: ...
+- City: ...
 
+<h2>Why not just using VPN?</h2>
+
+In principle, ***VPNs emphasize privacy, and Tor emphasizes anonymity***. While there’s some overlap between these two concepts, think of it this way: anonymity hides who you are, and privacy hides what you do.
