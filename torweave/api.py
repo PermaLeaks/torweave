@@ -1,3 +1,11 @@
+"""
+Arweave HTTP API over Tor 
+
+__author__ = "permaleaksMan"
+
+"""
+
+
 import requests
 import json
 from jwcrypto import jwk
